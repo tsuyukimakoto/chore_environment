@@ -1,0 +1,18 @@
+name: Echo with env_a environment
+
+on:
+  push:
+    tags:
+      - 'ts_*'
+
+jobs:
+  echo-env-var:
+    runs-on: ubuntu-latest
+    environment: env_a
+    
+    steps:
+      - name: CHeck out repository
+      - uses: actions/checkout@v2
+      
+      - name: Echo environment variable
+        run: echo "ENV_VAR ${{ vars.ENV_VAR }}"
