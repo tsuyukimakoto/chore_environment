@@ -5,6 +5,7 @@ on:
     tags:
       - 'ts_*'
       - 'tb_*'
+  workflow_dispatch:
 
 jobs:
   echo-env-var-a:
