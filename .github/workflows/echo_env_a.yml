@@ -4,11 +4,22 @@ on:
   push:
     tags:
       - 'ts_*'
+      - 'tb_*'
 
 jobs:
-  echo-env-var:
+  echo-env-var-a:
     runs-on: ubuntu-latest
     environment: env_a
+    
+    steps:
+      - name: CHeck out repository
+        uses: actions/checkout@v2
+      
+      - name: Echo environment variable
+        run: echo "ENV_VAR ${{ vars.ENV_VAR }}"
+  echo-env-var-b:
+    runs-on: ubuntu-latest
+    environment: env_b
     
     steps:
       - name: CHeck out repository
