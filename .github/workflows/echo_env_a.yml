@@ -10,6 +10,7 @@ jobs:
   echo-env-var-a:
     runs-on: ubuntu-latest
     environment: env_a
+    if: github.ref_type == 'tag' && startsWith(github.ref_name, 'ts_')
     
     steps:
       - name: CHeck out repository
@@ -20,6 +21,7 @@ jobs:
   echo-env-var-b:
     runs-on: ubuntu-latest
     environment: env_b
+    if: github.ref_type == 'tag' && startsWith(github.ref_name, 'tb_')
     
     steps:
       - name: CHeck out repository
